@@ -1,1 +1,2 @@
-# manga-admin
+# Manga Admin Panel
+Placeholder project for deployment.
