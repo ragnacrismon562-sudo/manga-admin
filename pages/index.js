@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import { supabase } from '../lib/supabase'
 import Navbar from '../components/Navbar'
 import MangaCard from '../components/MangaCard'
-import '../styles/globals.css'
 
 export default function Dashboard() {
   const router = useRouter()

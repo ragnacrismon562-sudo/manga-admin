@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { supabase } from '../lib/supabase'
 import Navbar from '../components/Navbar'
-import '../styles/globals.css'
 
 export default function AddManga() {
   const router = useRouter()

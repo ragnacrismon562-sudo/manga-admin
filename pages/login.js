@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { supabase } from '../lib/supabase'
-import '../styles/globals.css'
 
 export default function Login() {
   const [email, setEmail] = useState('')
