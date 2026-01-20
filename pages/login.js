@@ -22,14 +22,24 @@ export default function Login() {
     setError('')
 
     try {
+      console.log('Attempting login with:', email)
+      console.log('Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL)
+      
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
-      if (error) throw error
+      
+      if (error) {
+        console.error('Supabase login error:', error)
+        throw error
+      }
+      
+      console.log('Login successful:', data)
       router.push('/')
     } catch (error) {
-      setError(error.message)
+      console.error('Full error:', error)
+      setError(error.message || 'Login failed. Please check your credentials.')
     }
     setLoading(false)
   }
