@@ -1,0 +1,32 @@
+name = "manga-admin"
+type = "javascript"
+account_id = ""
+workers_dev = true
+routes = []
+zone_id = ""
+
+[env.production]
+vars = { NODE_VERSION = "24" }
+
+[[env.production.kv_namespaces]]
+
+[build]
+command = "npm run build"
+cwd = "./"
+
+[build.upload]
+format = "service-worker"
+
+[env.production]
+routes = [
+  { pattern = "manga-admin.ragnacrismon562.workers.dev/*", zone_name = "ragnacrismon562.workers.dev" }
+]
+
+vars = { 
+  NODE_VERSION = "24",
+  NEXT_PUBLIC_SUPABASE_URL = "https://bdbpkmvxnbyaykfxbnft.supabase.co",
+  NEXT_PUBLIC_SUPABASE_ANON_KEY = "oEz8e5NLLLOGA6TNKVs2YD0JXnF98Zu7DrztmO7ndXprNiHtc6by1N6TKV04C7i2qJkVn16yWy+6Frl3InfmOg=="
+}
+
+[env.production.secrets]
+SUPABASE_SERVICE_ROLE_KEY = "sb_secret_LYAxjT6rXJzj5ek-BCbgxg_-XIRHzTn"
