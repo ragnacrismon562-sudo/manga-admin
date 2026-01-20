@@ -1,32 +1,12 @@
 name = "manga-admin"
 type = "javascript"
 
-[env.production]
-vars = { NODE_VERSION = "24" }
-name = "manga-admin-production"
-
 [build]
 command = "npm run build"
 cwd = "./"
 
-[build.upload]
-format = "modules"
-main = "./.cloudflare/worker.js"
-
-[[build.upload.rules]]
-type = "CompiledContentType"
-globs = ["**/*.js", "**/*.css"]
-fallthrough = true
-
-[[build.upload.rules]]
-type = "Text"
-globs = ["**/*.html"]
-fallthrough = true
-
 [env.production]
-vars = { 
-  NODE_VERSION = "24"
-}
+vars = { NODE_VERSION = "24" }
 
 [env.production.secrets]
 NEXT_PUBLIC_SUPABASE_URL = "https://bdbpkmvxnbyaykfxbnft.supabase.co"
